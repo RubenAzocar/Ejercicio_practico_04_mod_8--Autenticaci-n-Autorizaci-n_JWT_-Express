@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Laboratorio JWT | Express MVC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/estilo.css" />
+</head>
+<body>
+  <div class="fondo-orbita" aria-hidden="true"></div>
+
+  <main class="contenedor-principal">
+    <header class="encabezado">
+      <p class="etiqueta">API JWT + Express</p>
+      <h1>Panel de autenticacion y autorizacion</h1>
+      <p class="subtitulo">
+        Interfaz de pruebas para consumir todos los endpoints: registro, login, perfil protegido y panel admin.
+      </p>
+    </header>
+
+    <section class="rejilla-endpoints" aria-label="Resumen de endpoints">
+      <article class="tarjeta-endpoint">
+        <span class="metodo metodo-post">POST</span>
+        <h2>/auth/register</h2>
+        <p>Crea un usuario con hash de contrasena.</p>
+      </article>
+      <article class="tarjeta-endpoint">
+        <span class="metodo metodo-post">POST</span>
+        <h2>/auth/login</h2>
+        <p>Valida credenciales y devuelve token JWT.</p>
+      </article>
+      <article class="tarjeta-endpoint">
+        <span class="metodo metodo-get">GET</span>
+        <h2>/api/perfil</h2>
+        <p>Retorna datos del usuario autenticado.</p>
+      </article>
+      <article class="tarjeta-endpoint">
+        <span class="metodo metodo-get">GET</span>
+        <h2>/api/admin</h2>
+        <p>Recurso con autorizacion por rol admin.</p>
+      </article>
+    </section>
+
+    <section class="paneles">
+      <article class="panel formulario-panel">
+        <h3>Registrar usuario</h3>
+        <form id="formularioRegistro" novalidate>
+          <label for="registroEmail">Email</label>
+          <input id="registroEmail" name="email" type="email" placeholder="usuario@correo.com" required />
+
+          <label for="registroPassword">Password</label>
+          <input id="registroPassword" name="password" type="password" minlength="6" placeholder="Minimo 6 caracteres" required />
+
+          <button type="submit" class="boton boton-primario">Crear cuenta</button>
+        </form>
+      </article>
+
+      <article class="panel formulario-panel">
+        <h3>Iniciar sesion</h3>
+        <form id="formularioLogin" novalidate>
+          <label for="loginEmail">Email</label>
+          <input id="loginEmail" name="email" type="email" placeholder="usuario@correo.com" required />
+
+          <label for="loginPassword">Password</label>
+          <input id="loginPassword" name="password" type="password" minlength="6" placeholder="Tu password" required />
+
+          <button type="submit" class="boton boton-primario">Obtener token</button>
+        </form>
+      </article>
+
+      <article class="panel token-panel">
+        <h3>Token JWT activo</h3>
+        <textarea id="tokenJwt" rows="5" placeholder="Aqui aparecera el token despues del login"></textarea>
+
+        <div class="acciones-token">
+          <button id="botonGuardarToken" type="button" class="boton boton-secundario">Guardar token</button>
+          <button id="botonLimpiarToken" type="button" class="boton boton-secundario">Limpiar token</button>
+        </div>
+
+        <small>Se almacena en localStorage para mantener sesion de pruebas.</small>
+      </article>
+    </section>
+
+    <section class="panel panel-protegido">
+      <h3>Rutas protegidas</h3>
+      <p>Usa el token para consumir endpoints autenticados.</p>
+
+      <div class="acciones-protegidas">
+        <button id="botonPerfil" type="button" class="boton boton-primario">Consultar /api/perfil</button>
+        <button id="botonAdmin" type="button" class="boton boton-alerta">Consultar /api/admin</button>
+      </div>
+    </section>
+
+    <section class="panel panel-respuesta">
+      <div class="cabecera-respuesta">
+        <h3>Consola de respuestas</h3>
+        <button id="botonLimpiarConsola" type="button" class="boton boton-secundario">Limpiar</button>
+      </div>
+      <pre id="salidaRespuesta" aria-live="polite"></pre>
+    </section>
+  </main>
+
+  <script src="/js/cliente.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "name": "ejercicio-jwt-express-mvc",
+  "version": "1.0.0",
+  "description": "Autenticacion y autorizacion con JWT en Express siguiendo MVC",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "jsdom": "^28.1.0",
+    "nodemon": "^3.1.4"
+  }
+}

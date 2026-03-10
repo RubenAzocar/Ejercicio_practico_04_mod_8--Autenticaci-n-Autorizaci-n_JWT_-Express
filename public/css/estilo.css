@@ -1,0 +1,336 @@
+:root {
+  --color-fondo-1: #f5f0e8;
+  --color-fondo-2: #d8e8f4;
+  --color-superficie: rgba(255, 255, 255, 0.74);
+  --color-superficie-fuerte: #ffffff;
+  --color-texto: #102437;
+  --color-texto-suave: #4f5f6f;
+  --color-borde: rgba(16, 36, 55, 0.12);
+  --color-post: #0e9f6e;
+  --color-get: #2563eb;
+  --color-primario: #f97316;
+  --color-primario-hover: #ea580c;
+  --color-alerta: #be123c;
+  --sombra-principal: 0 22px 45px rgba(16, 36, 55, 0.16);
+  --radio-xl: 1.25rem;
+  --radio-md: 0.85rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+  color: var(--color-texto);
+  background: radial-gradient(circle at 15% 20%, #f9dbc2 0%, transparent 45%),
+    radial-gradient(circle at 85% 10%, #b8d8ea 0%, transparent 40%),
+    linear-gradient(160deg, var(--color-fondo-1), var(--color-fondo-2));
+}
+
+.fondo-orbita {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(16, 36, 55, 0.03) 0,
+    rgba(16, 36, 55, 0.03) 1px,
+    transparent 1px,
+    transparent 30px
+  );
+}
+
+.contenedor-principal {
+  width: min(1150px, 92vw);
+  margin: 2.5rem auto 3rem;
+  display: grid;
+  gap: 1.25rem;
+  animation: aparecer 620ms ease-out;
+}
+
+.encabezado {
+  background: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-xl);
+  padding: 1.6rem;
+  box-shadow: var(--sombra-principal);
+  backdrop-filter: blur(8px);
+}
+
+.encabezado h1 {
+  margin: 0.25rem 0 0.5rem;
+  font-size: clamp(1.65rem, 2.4vw, 2.35rem);
+  line-height: 1.1;
+}
+
+.subtitulo {
+  margin: 0;
+  max-width: 72ch;
+  color: var(--color-texto-suave);
+}
+
+.etiqueta {
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  background: #102437;
+  color: #eef6fc;
+}
+
+.rejilla-endpoints {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.tarjeta-endpoint {
+  background: var(--color-superficie-fuerte);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-md);
+  padding: 1rem;
+  box-shadow: 0 12px 24px rgba(16, 36, 55, 0.08);
+  transform: translateY(14px);
+  opacity: 0;
+  animation: subir 540ms ease forwards;
+}
+
+.tarjeta-endpoint:nth-child(2) {
+  animation-delay: 120ms;
+}
+
+.tarjeta-endpoint:nth-child(3) {
+  animation-delay: 220ms;
+}
+
+.tarjeta-endpoint:nth-child(4) {
+  animation-delay: 320ms;
+}
+
+.tarjeta-endpoint h2 {
+  margin: 0.65rem 0 0.35rem;
+  font-size: 1.02rem;
+}
+
+.tarjeta-endpoint p {
+  margin: 0;
+  color: var(--color-texto-suave);
+  font-size: 0.92rem;
+}
+
+.metodo {
+  display: inline-flex;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  border-radius: 999px;
+  padding: 0.2rem 0.56rem;
+  color: #fff;
+}
+
+.metodo-post {
+  background: var(--color-post);
+}
+
+.metodo-get {
+  background: var(--color-get);
+}
+
+.paneles {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.9rem;
+}
+
+.panel {
+  background: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-md);
+  padding: 1rem;
+  box-shadow: 0 10px 26px rgba(16, 36, 55, 0.08);
+  backdrop-filter: blur(7px);
+}
+
+.panel h3 {
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+}
+
+.formulario-panel form {
+  display: grid;
+  gap: 0.6rem;
+}
+
+label {
+  font-size: 0.88rem;
+  color: #2f4356;
+}
+
+input,
+textarea,
+button {
+  font: inherit;
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 1px solid rgba(16, 36, 55, 0.19);
+  border-radius: 0.65rem;
+  padding: 0.64rem 0.72rem;
+  background: #fff;
+}
+
+input:focus,
+textarea:focus {
+  outline: 2px solid rgba(249, 115, 22, 0.36);
+  border-color: transparent;
+}
+
+.token-panel textarea {
+  resize: vertical;
+  min-height: 120px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.82rem;
+}
+
+.acciones-token,
+.acciones-protegidas {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-top: 0.65rem;
+}
+
+.boton {
+  border: none;
+  border-radius: 0.66rem;
+  padding: 0.6rem 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 140ms ease, box-shadow 140ms ease, background 140ms ease;
+}
+
+.boton:hover {
+  transform: translateY(-1px);
+}
+
+.boton:active {
+  transform: translateY(0);
+}
+
+.boton-primario {
+  background: var(--color-primario);
+  color: #fff;
+  box-shadow: 0 9px 18px rgba(234, 88, 12, 0.32);
+}
+
+.boton-primario:hover {
+  background: var(--color-primario-hover);
+}
+
+.boton-secundario {
+  background: #e5edf4;
+  color: #173046;
+}
+
+.boton-alerta {
+  background: var(--color-alerta);
+  color: #fff;
+}
+
+.panel-protegido p {
+  margin-top: -0.3rem;
+  color: var(--color-texto-suave);
+}
+
+.panel-respuesta {
+  min-height: 220px;
+}
+
+.cabecera-respuesta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.6rem;
+}
+
+#salidaRespuesta {
+  margin: 0;
+  border-radius: 0.7rem;
+  border: 1px solid rgba(16, 36, 55, 0.14);
+  background: #0c1d2d;
+  color: #d5f2ff;
+  padding: 0.95rem;
+  min-height: 150px;
+  max-height: 320px;
+  overflow: auto;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.83rem;
+  white-space: pre-wrap;
+  line-height: 1.45;
+}
+
+@media (max-width: 1040px) {
+  .rejilla-endpoints {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .paneles {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .token-panel {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 700px) {
+  .contenedor-principal {
+    width: min(96vw, 720px);
+    margin-top: 1.2rem;
+  }
+
+  .rejilla-endpoints,
+  .paneles {
+    grid-template-columns: 1fr;
+  }
+
+  .cabecera-respuesta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes subir {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,51 @@
+[
+  {
+    "id": "1773098287782",
+    "email": "demo@mail.com",
+    "hashContrasena": "$2a$10$PHWug/P0SJsmwabEuvUvJeEScNgWxBJmaF.5P8notxQ2NJYsQQiKe",
+    "rol": "usuario",
+    "fechaCreacion": "2026-03-09T23:18:07.782Z"
+  },
+  {
+    "id": "1773100331145",
+    "email": "usuario.1773100331001@mail.com",
+    "hashContrasena": "$2a$10$5fWWnW76cJ1K32dvdb1fmOBT8GBl2j1PQ9UfRZzy3xcgUu5.a6nd.",
+    "rol": "usuario",
+    "fechaCreacion": "2026-03-09T23:52:11.145Z"
+  },
+  {
+    "id": "1773100331970",
+    "email": "ui.1773100331773@mail.com",
+    "hashContrasena": "$2a$10$bGF.TYRRQ2RJqq7KxhztEerl1q7aWX7refUP0sXNsouUJZL5gx.9u",
+    "rol": "usuario",
+    "fechaCreacion": "2026-03-09T23:52:11.970Z"
+  },
+  {
+    "id": "1773100402312",
+    "email": "usuario.1773100402186@mail.com",
+    "hashContrasena": "$2a$10$YLIqAjJKHtza4WcvrrwWtuy89Vd/9ILambw7OkqdGcQp7dTdmYKu2",
+    "rol": "usuario",
+    "fechaCreacion": "2026-03-09T23:53:22.312Z"
+  },
+  {
+    "id": "1773100402907",
+    "email": "ui.1773100402776@mail.com",
+    "hashContrasena": "$2a$10$jlOpCs1W5/CjFyK3BjGzueZcZcjWYliS8YylQLaZEayjwKxzgqzCi",
+    "rol": "usuario",
+    "fechaCreacion": "2026-03-09T23:53:22.907Z"
+  },
+  {
+    "id": "1773100526494",
+    "email": "jdoe@fakemail.com",
+    "hashContrasena": "$2a$10$vY0ovVzk3fidgmbjI8EXzOQv4g6rxAc/BVzso1bNtgFZ5YBBWUt2i",
+    "rol": "usuario",
+    "fechaCreacion": "2026-03-09T23:55:26.494Z"
+  },
+  {
+    "id": "1773100748219",
+    "email": "jdoe@mail.com",
+    "hashContrasena": "$2a$10$xPoLRXJmVwqYGM9JAyd7ZOv4khVPEiArilK0AkB6vH1M8fE.ViIwm",
+    "rol": "usuario",
+    "fechaCreacion": "2026-03-09T23:59:08.219Z"
+  }
+]
